@@ -1,15 +1,10 @@
-import {
-    Button,
-    Container,
-    Grid,
-    Typography,
-} from "@mui/material";
+import { Button, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { Link } from "react-router-dom";
 import banner from "../assets/banner.jpg";
 import banner2 from "../assets/banner2.jpg";
 
 const Home = () => {
-    
     return (
         <>
             <div style={{ minHeight: "95vh" }}>
@@ -44,14 +39,23 @@ const Home = () => {
 
             <Box
                 sx={{
-                    minHeight:'95vh',
-                   backgroundSize: "cover",
+                    minHeight: "95vh",
+                    backgroundSize: "cover",
                     backgroundImage: `url(${banner2})`,
                 }}
             >
-                <Grid container sx={{ px: 4, pb:8 }}>
-                    <Grid item xs={12} md={6} sx={{ p: 4, mt:{xs:0, md:4} }}>
-                        <Typography sx={{ mt: {xs:2, sm:4, md:8} }} variant="h4" color="textSecondary">
+                <Grid container sx={{ px: 4, pb: 8 }}>
+                    <Grid
+                        item
+                        xs={12}
+                        md={6}
+                        sx={{ p: 4, mt: { xs: 0, md: 4 } }}
+                    >
+                        <Typography
+                            sx={{ mt: { xs: 2, sm: 4, md: 8 } }}
+                            variant="h4"
+                            color="textSecondary"
+                        >
                             Fitness That Fits Into Your Lifestyle
                         </Typography>
                         <Typography sx={{ mt: 4 }} variant="h5" color="gray">
@@ -73,16 +77,18 @@ const Home = () => {
                             matress, you can always find suitable exercises with
                             the FitPal app.
                         </Typography>
-                        <Button
-                            sx={{
-                                mt: 4,
-                            }}
-                            variant='contained'
-                        >
-                            Browse Exercises
-                        </Button>
+                        <Link style={{textDecoration:"none"}} to="/exercises">
+                            <Button
+                                sx={{
+                                    mt: 4,
+                                }}
+                                variant="contained"
+                            >
+                                Browse Exercises
+                            </Button>
+                        </Link>
                     </Grid>
-                    <Grid item xs={12} md={6} sx={{ p:0 }}></Grid>
+                    <Grid item xs={12} md={6} sx={{ p: 0 }}></Grid>
                 </Grid>
             </Box>
         </>
