@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import { useState } from "react";
-import { featuredItems } from "./test_exercises";
+import { featuredItems } from "../Components/test_exercises";
 
 const Exercises = () => {
     const [age, setAge] = useState("");

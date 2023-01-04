@@ -1,20 +1,19 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { About, Contact, Home } from "./pages";
-import { Exercises, Layout } from "./Components";
+import { Home, Exercises } from "./pages";
+import { Layout } from "./Components";
+import ScrollToTop from "./utils/helper/ScrollToTop";
 
 function App() {
     return (
         <BrowserRouter>
-            <Layout>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/about" element={<About />} />
+            <ScrollToTop />
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
                     <Route path="/exercises" element={<Exercises />} />
-                    
-                </Routes>
-            </Layout>
+                </Route>
+            </Routes>
         </BrowserRouter>
     );
 }
