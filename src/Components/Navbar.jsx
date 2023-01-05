@@ -75,7 +75,7 @@ const Navbar = () => {
                                 textDecoration: "none",
                             }}
                         >
-                            FitPal
+                            WorkoutPal
                         </Typography>
                     </Box>
                     <Box
@@ -94,7 +94,8 @@ const Navbar = () => {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Menu
+                        <Menu 
+                            
                             id="menu-appbar"
                             anchorEl={anchorElNav}
                             anchorOrigin={{
@@ -109,11 +110,13 @@ const Navbar = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: "block", md: "none" },
+                                
+                                display: { xs: "block", md: "none" }
                             }}
                         >
                             {pages.map((page, index) => (
                                 <MenuItem
+                                
                                     key={index}
                                     onClick={handleCloseNavMenu}
                                 >
@@ -150,7 +153,7 @@ const Navbar = () => {
                             textDecoration: "none",
                         }}
                     >
-                        FitPal
+                        WorkoutPal
                     </Typography>
                     <Box
                         sx={{
