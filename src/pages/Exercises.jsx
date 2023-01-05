@@ -1,10 +1,6 @@
 import {
     Button,
-    Card,
-    CardContent,
-    CardMedia,
     FormControl,
-    Grid,
     InputLabel,
     MenuItem,
     Select,
@@ -18,9 +14,9 @@ import {
 } from "../services/ExerciseService";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import { ExerciseGrid } from "../Components";
 
 const Exercises = () => {
-    
     const [page, setPage] = useState(1);
     const [count, setCount] = useState(null);
     const [exercises, setExercises] = useState([]);
@@ -61,7 +57,7 @@ const Exercises = () => {
         };
 
         getCategories();
-    }, []);
+    },[]);
 
     return (
         <Box>
@@ -204,51 +200,7 @@ const Exercises = () => {
                     </Button>
                 </Box>
             </Container>
-            {/* Exercises Conatiner */}
-
-            <Container sx={{ mt: 4 }}>
-                <Container>
-                    <Grid container spacing={4} sx={{ my: 4 }}>
-                        {exercises.map((item, index) => {
-                            return (
-                                <Grid
-                                    sx={{
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                    }}
-                                    item
-                                    key={index}
-                                    xs={12}
-                                    sm={6}
-                                    md={6}
-                                    lg={4}
-                                >
-                                    <Card elevation={2} sx={{ maxWidth: 345 }}>
-                                        <CardMedia
-                                            sx={{ minHeight: 350 }}
-                                            component="img"
-                                            alt="green iguana"
-                                            height="140"
-                                            image={item.gifUrl}
-                                        />
-                                        <CardContent>
-                                            <Typography
-                                                gutterBottom
-                                                variant="h6"
-                                                component="div"
-                                                align="center"
-                                            >
-                                                {item.name}
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                                </Grid>
-                            );
-                        })}
-                    </Grid>
-                </Container>
-            </Container>
+            <ExerciseGrid exercises={exercises} />
             <Container
                 sx={{
                     my: 2,
