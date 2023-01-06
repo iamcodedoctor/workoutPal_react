@@ -1,10 +1,11 @@
 import { Container, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Details, ExerciseGrid } from "../Components";
+import { Details, ExerciseGrid, RelatedVideos } from "../Components";
 import {
     getExerciseById,
     getFilteredExercises,
+    getRelatedVideos,
 } from "../services/ExerciseService";
 
 const ExerciseDetail = () => {
@@ -13,6 +14,8 @@ const ExerciseDetail = () => {
     const [similarBodyPartExercises, setSimilarBodyPartExercises] =
         useState(null);
     const [similarTargetExercises, setSimilarTargetExercises] = useState(null);
+    const [realtedVideos, setRelatedVideos] = useState(null);
+
 
     useEffect(() => {
         const getExerciseDetails = async () => {
@@ -28,13 +31,16 @@ const ExerciseDetail = () => {
 
             const response2 = await getFilteredExercises({ target, limit: 3 });
             setSimilarTargetExercises(response2.data.exercises);
+
+            const response3 = await getRelatedVideos(response.data.name);
+            setRelatedVideos(response3)
         };
 
         getExerciseDetails();
     }, [id]);
 
     return (
-        <>
+        <> 
             <Container>
                 {exerciseDetails && (
                     <Details exerciseDetails={exerciseDetails} />
@@ -42,6 +48,18 @@ const ExerciseDetail = () => {
             </Container>
             <Container>
                 <Container>
+                    {
+                        exerciseDetails && (
+                            <Typography variant='h4'>
+                                Videos related to {exerciseDetails.name}
+                            </Typography>
+                        )
+                    }
+                    {
+                        realtedVideos && (
+                            <RelatedVideos data={realtedVideos} />
+                        )
+                    }
                     <Typography sx={{ mt: 4 }} variant="h3" color="primary">
                         Similar Exercises
                     </Typography>
