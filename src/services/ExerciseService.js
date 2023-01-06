@@ -1,6 +1,8 @@
 import {baseConfig} from "../configs/baseConfig"
 import axios from 'axios';
 const serverUrl = baseConfig.serverUrl;
+const ytSearchURl = baseConfig.youtubeSearchUrl;
+const rapidApiKey = baseConfig.rapidApiKey;
 
 const getFilterCategoris = async () => {
     try {
@@ -42,4 +44,26 @@ const getExerciseById = async (id) =>{
     }
 }
 
-export { getFilterCategoris, getFilteredExercises, getExerciseById}
+const getRelatedVideos = async (name) => {
+    try {
+        const options = {
+            method: 'GET',
+            url: `${ytSearchURl}/search`,
+            params: {
+                query: `exercise ${name}`,
+                
+              },
+            headers: {
+              'X-RapidAPI-Key': rapidApiKey,
+              'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
+            }
+          };
+        const response = await axios.request(options);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+export { getFilterCategoris, getFilteredExercises, getExerciseById, getRelatedVideos}

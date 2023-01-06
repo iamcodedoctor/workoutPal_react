@@ -2,12 +2,12 @@ import { Card, CardContent, CardMedia, Container, Grid, Typography } from "@mui/
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ExerciseGrid = ({exercises}) => {
-    return (
-        <Container sx={{ mt: 1 }}>
+const RelatedVideos = ({data}) => {
+  return (
+    <Container sx={{ mt: 1 }}>
             <Container>
                 <Grid container spacing={4} sx={{ my: 1 }}>
-                    {exercises.map((item, index) => {
+                    {data.contents.slice(0,3).map((item, index) => {
                         return (
                             <Grid
                                 sx={{
@@ -22,17 +22,18 @@ const ExerciseGrid = ({exercises}) => {
                                 md={6}
                                 lg={4}
                             >
-                                <Link
+                                <a
+                                target={'__blank'}
                                     style={{ textDecoration: "none" }}
-                                    to={`/exerciseDetails/${item._id}`}
+                                    href={`https://youtube.com/watch?v=${item.video.videoId}`}
                                 >
-                                    <Card elevation={2} sx={{ maxWidth: 345, height:450 }}>
+                                    <Card elevation={2} sx={{ maxWidth: 345, height: 330 }}>
                                         <CardMedia
-                                            sx={{ minHeight: 350 }}
+                                            sx={{ width: 330, height:200 }}
                                             component="img"
                                             alt="green iguana"
                                             height="140"
-                                            image={item.gifUrl}
+                                            image={item.video.thumbnails[0].url}
                                         />
                                         <CardContent>
                                             <Typography
@@ -41,18 +42,18 @@ const ExerciseGrid = ({exercises}) => {
                                                 component="div"
                                                 align="center"
                                             >
-                                                {item.name}
+                                                {item.video.title}
                                             </Typography>
                                         </CardContent>
                                     </Card>
-                                </Link>
+                                </a>
                             </Grid>
                         );
                     })}
                 </Grid>
             </Container>
         </Container>
-    );
-};
+  )
+}
 
-export default ExerciseGrid;
+export default RelatedVideos
