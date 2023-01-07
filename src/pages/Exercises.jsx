@@ -203,13 +203,14 @@ const Exercises = () => {
             <ExerciseGrid exercises={exercises} />
             <Container
                 sx={{
-                    my: 2,
+                    mb:8,
+                    mt: 2,
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                 }}
             >
-                <Stack spacing={2}>
+                <Stack sx={{mt:4}} spacing={2}>
                     <Pagination
                         count={Math.floor(count / 12)}
                         shape="rounded"
