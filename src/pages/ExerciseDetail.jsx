@@ -55,7 +55,7 @@ const ExerciseDetail = () => {
                                         <RelatedVideos data={realtedVideos}/>
                                     )
                                 }
-                                <Typography sx={{mt: 4}} variant="h3" color="primary">
+                                <Typography sx={{mt: 8}} variant="h3" color="primary">
                                     Similar Exercises
                                 </Typography>
                                 <Typography
