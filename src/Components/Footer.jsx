@@ -1,12 +1,15 @@
 import { Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
+import EmailIcon from '@mui/icons-material/Email';
+import CallIcon from '@mui/icons-material/Call';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
         <Box sx={{ backgroundColor: "#f7f8fd" }}>
             <Container sx={{ pt: 4 }}>
                 <Grid container>
-                   
                     <Grid
                         sx={{
                             p: 1,
@@ -33,9 +36,11 @@ const Footer = () => {
                         <Typography variant="body1" color="textSecondary">
                             About
                         </Typography>
+                        <Link to='/exercises' style={{textDecoration:'none'}}>
                         <Typography variant="body1" color="textSecondary">
                             Exercises
                         </Typography>
+                        </Link>
                         <Typography variant="body1" color="textSecondary">
                             Contact
                         </Typography>
@@ -63,10 +68,13 @@ const Footer = () => {
                             sx={{ mt: 2 }}
                             variant="body1"
                             color="textSecondary"
+                            textAlign={'center'}
                         >
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Aspernatur, ex. Iusto dolor, necessitatibus
-                            aliquid harum dolore corporis voluptas ullam iure.
+                            I am an solo developer from Nashik Maharashtra. The
+                            main aim with this application is to create a free
+                            and easy to access resource for beginner as well as
+                            intermidate to learn and get into the world of
+                            fitness.
                         </Typography>
                     </Grid>
                     <Grid
@@ -86,14 +94,27 @@ const Footer = () => {
                             Contact
                         </Typography>
                         <Typography
-                            sx={{ mt: 2 }}
+                            variant="body1"
+                            color="textSecondary"
+                            sx={{display:'flex', justifyContent:'center', alignItems:'center', mt:2}}
+                        >
+                            <EmailIcon style={{marginRight:'10px'}} /> khareniraj23@gmail.com
+                        </Typography>
+                        <Typography
+                             sx={{display:'flex', justifyContent:'center', alignItems:'center', mt:2}}
                             variant="body1"
                             color="textSecondary"
                         >
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Aspernatur, ex. Iusto dolor, necessitatibus
-                            aliquid harum dolore corporis voluptas ullam iure.
+                            <PersonPinCircleIcon style={{marginRight:'10px'}} /> Nashik, Maharastra
                         </Typography>
+                        <Typography
+                             sx={{display:'flex', justifyContent:'center', alignItems:'center', mt:2}}
+                            variant="body1"
+                            color="textSecondary"
+                        >
+                            <CallIcon style={{marginRight:'10px'}} /> +91 9370468105
+                        </Typography>
+                       
                     </Grid>
                 </Grid>
                 <Typography
