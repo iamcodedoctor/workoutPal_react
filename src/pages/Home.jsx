@@ -31,7 +31,7 @@ const Home = () => {
                     color="primary"
                     sx={{ mt: 2 }}
                 >
-                    Learn awesome exercise with FitPal
+                    Learn awesome exercise with WorkoutPal
                 </Typography>
             </Container>
 
@@ -62,20 +62,20 @@ const Home = () => {
                             Explore more than 1000 unique exercises
                         </Typography>
                         <Typography sx={{ mt: 4 }} variant="h4" color="primary">
-                            Be the architect of your own body with FitPal
+                            Be the architect of your own body with WorkoutPal
                         </Typography>
                         <Typography
                             sx={{ fontSize: "20px", mt: 4 }}
                             color="textSecondary"
                         >
-                            With FitPal you have straight and totally free
+                            With WorkoutPal you have straight and totally free
                             access to more than one thousand unique exercises.
                             One can filter exercises based on equipment, body
                             parts and the targeted muscles so that there is
                             always something for everyone, no matter if have
                             access to high tech equipment or you just have a
                             matress, you can always find suitable exercises with
-                            the FitPal app.
+                            the WorkoutPal app.
                         </Typography>
                         <Link style={{textDecoration:"none"}} to="/exercises">
                             <Button
