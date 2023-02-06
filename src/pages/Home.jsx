@@ -1,8 +1,8 @@
 import { Button, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
-import banner from "../assets/banner.jpg";
-import banner2 from "../assets/banner2.jpg";
+import banner from "../assets/banner.webp";
+import banner2 from "../assets/banner2.webp";
 
 const Home = () => {
     return (
